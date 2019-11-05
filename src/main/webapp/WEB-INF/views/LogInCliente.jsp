@@ -41,19 +41,19 @@
           <li><a href="#" class="active">Log in</a></li>
         </ul>
         <div class="tabs_cont">
-          <form id="form_1" action="Registro" method="post">
+          <form id="form_1" action="Validador">
             <div class="bg">
               <div class="wrapper">
                   <input type="text" class="input" name="Usuario">
                 User</div>
               <div class="wrapper">
-                <input type="text" class="input">
+                  <input type="password" class="input" name="Contra">
                 Pass</div>
               <div class="wrapper">
 
               <div class="wrapper pad_bot1">
               <div class="wrapper pad_bot1"> 
-                  <button >ingresar</button>
+                  <input type="submit" value="Ingresar">
               </div>
             </div>
           </form>

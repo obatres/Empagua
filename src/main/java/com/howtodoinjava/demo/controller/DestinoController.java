@@ -18,39 +18,64 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DestinoController {
-    @RequestMapping("Registro")
-    public ModelAndView EnviarARegistro(HttpServletRequest req, HttpServletResponse resp){
+    @RequestMapping("RegistroContador")
+    public ModelAndView EnviarARegistro(){
     ModelAndView Model = new ModelAndView();
-    //String usuario=req.getParameter("nombre");
     Model.setViewName("RegistroContador");
     return Model;
     }
 
     @RequestMapping("Inicio")
-    public ModelAndView EnviarAInicio(HttpServletRequest req, HttpServletResponse resp){
+    public ModelAndView EnviarAInicio(){
     ModelAndView Model = new ModelAndView();
     Model.setViewName("LogInCliente");
     return Model;
     }
     
     @RequestMapping("Factura")
-    public ModelAndView EnviarAGenerarFactura(HttpServletRequest req, HttpServletResponse resp){
+    public ModelAndView EnviarAGenerarFactura(){
     ModelAndView Model = new ModelAndView();
     Model.setViewName("GenerarFactura");
     return Model;
     }
     
     @RequestMapping("Pago")
-    public ModelAndView EnviarAPagos(HttpServletRequest req, HttpServletResponse resp){
+    public ModelAndView EnviarAPagos(){
     ModelAndView Model = new ModelAndView();
     Model.setViewName("GenerarPago");
     return Model;
     }
     
     @RequestMapping("Historial")
-    public ModelAndView EnviarAHistorial(HttpServletRequest req, HttpServletResponse resp){
+    public ModelAndView EnviarAHistorial(){
     ModelAndView Model = new ModelAndView();
     Model.setViewName("Historial");
+    return Model;
+    }
+    @RequestMapping("/")
+    public ModelAndView EnviarAInicioInicio(){
+    ModelAndView Model = new ModelAndView();
+    Model.setViewName("LogInCliente");
+    return Model;
+    }
+    
+    @RequestMapping("Validador")
+    public ModelAndView getValidador(HttpServletRequest req, HttpServletResponse resp){
+    ModelAndView Model = new ModelAndView();
+    String usuario=req.getParameter("Usuario");
+    String contra=req.getParameter("Contra");
+    if (usuario=="admin"){
+            Model.setViewName("RegistroContador");
+    }else{
+        Model.setViewName("error");
+    }
+    return Model;
+    }
+    
+    @RequestMapping("error")
+    public ModelAndView getError(){
+    ModelAndView Model = new ModelAndView();
+    Model.setViewName("error");
     return Model;
     }
 }
